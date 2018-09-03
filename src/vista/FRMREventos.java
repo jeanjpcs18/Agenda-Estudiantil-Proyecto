@@ -65,11 +65,12 @@ public class FRMREventos extends javax.swing.JDialog {
             String mensaje = "Se requiere este campo";
             if(!UtilidadesComponente.mostrarError(txt_des, mensaje, 'r') ){
                 cargarObjeto();
-                cargarTablaEventos();
+                
                 if(es.getEventos().getId() != null) {
                     if(es.guardar()) {
                         UtilidadesComponente.mensajeOk("Se ha modificado correctamente","Ok");
                         limpiar();
+                        cargarTablaEventos();
                     } else {
                         UtilidadesComponente.mensajeError("Error", "No se pudo modificar");
                     }
@@ -77,6 +78,7 @@ public class FRMREventos extends javax.swing.JDialog {
                     if(es.guardar()) {
                         UtilidadesComponente.mensajeOk("OK", "Se ha guardado correctamente");
                         limpiar();
+                        cargarTablaEventos();
                     } else {
                         UtilidadesComponente.mensajeError("Error", "No se pudo guardar");
                     }
